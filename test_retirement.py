@@ -4,6 +4,7 @@
 # Programmers: Gabriel Henderson, Tiffany Harrell, Joshua Haley, Alan Gallardo
 
 import pytest
+from pytest import raises
 import retirement
 
 
@@ -90,7 +91,23 @@ def test_calculate_nra_1959_november():
 def test_calculate_nra_1960_january():
     assert retirement.calculate_nra(1960, 1) == ('67 and 0 months', 'January of 2027')
 
+def test_validate_year_1900():
+    assert retirement.validate_year("1900") == "1900"
 
+def test_validate_year_2999():
+    assert retirement.validate_year("2999") == "2999"
+
+def test_validate_year_negative_year():
+    with raises(OSError):
+        retirement.validate_year("-3")
+
+def test_validate_year_3000():
+    with raises(OSError):
+        retirement.validate_year("3000")
+
+def test_validate_year_non_digit_year():
+    with raises(OSError):
+        retirement.validate_year("abcd")
 # FOLLOWING 2 TESTS CANNOT BE DONE
 # def test_calculate_nra_3000_january():
 # def test_calculate_nra_1899_invalid_year():
