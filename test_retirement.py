@@ -1,6 +1,7 @@
 # Team 5's Testing on Team 6 Solution
 # CSC 2021FA.CSC.256.0001
 # September 17th, 2021
+# Programmers: Gabriel Henderson, Tiffany Harrell, Joshua Haley, Alan Gallardo
 
 import pytest
 import retirement
