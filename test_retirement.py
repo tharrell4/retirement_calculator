@@ -72,11 +72,26 @@ def test_calculate_nra_1958_november():
     assert retirement.calculate_nra(1958, 11) == ('66 and 8 months', 'July of 2025')
 
 
-# def test_calculate_nra_1942_january():
-# def test_calculate_nra_1942_november():
-# def test_calculate_nra_1959_january():
-# def test_calculate_nra_1959_november():
-# def test_calculate_nra_1960_january():
+def test_calculate_nra_1942_january():
+    assert retirement.calculate_nra(1942, 1) == ('66 and 10 months', 'November of 2007')
+
+
+def test_calculate_nra_1942_november():
+    assert retirement.calculate_nra(1942, 11) == ('66 and 10 months', 'September of 2008')
+
+def test_calculate_nra_1959_january():
+    assert retirement.calculate_nra(1959, 1) == ('66 and 10 months', 'November of 2025')
+
+
+def test_calculate_nra_1959_november():
+    assert retirement.calculate_nra(1959, 11) == ('66 and 10 months', 'September of 2026')
+
+
+def test_calculate_nra_1960_january():
+    assert retirement.calculate_nra(1960, 1) == ('67 and 0 months', 'January of 2027')
+
+
+# FOLLOWING 2 TESTS CANNOT BE DONE
 # def test_calculate_nra_3000_january():
 # def test_calculate_nra_1899_invalid_year():
 
