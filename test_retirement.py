@@ -111,3 +111,38 @@ def test_validate_year_non_digit_year():
 # FOLLOWING 2 TESTS CANNOT BE DONE
 # def test_calculate_nra_3000_january():
 # def test_calculate_nra_1899_invalid_year():
+
+
+#Alan Jimenez-Gallardo Tests for validate_month
+
+def test_validate_month_greater_than_twelve():
+    with raises(OSError):
+        retirement.validate_month('13')
+
+def test_validate_month_less_than_one():
+    with raises(OSError):
+        retirement.validate_month('0')
+
+def test_validate_month_when_negative():
+    with raises(OSError):
+        retirement.validate_month('-5')
+
+def test_validate_month_when_float():
+    with raises(OSError):
+        retirement.validate_month('2.5')
+
+def test_validate_month_when_number_is_long():
+    with raises(OSError):
+        retirement.validate_month('568456925212')
+
+def test_validate_month_when_month_is_a_string_value():
+    with raises(OSError):
+        retirement.validate_month('January')
+
+def test_validate_month_when_month_is_in_range():
+    with raises(OSError):
+        retirement.validate_month('5')
+
+def test_validate_month_6():
+    assert retirement.validate_month('6') == 'June'
+
